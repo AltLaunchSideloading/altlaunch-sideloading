@@ -7,14 +7,26 @@
     <h1>Hello from GitHub Pages!</h1>
 
 <script>
-fetch("https://api.ipify.org?format=json")
-  .then(res => res.json())
-  .then(data => {
-    const ip = data.ip;
-    // Use an image to send the IP — avoids CORS issues
-    new Image().src = "https://script.google.com/macros/s/AKfycbweF-rQ9loUOVC55YKwmEZ3s_9j-qb96VNlVy5S7johPFVD2lpMXoLjOmM49l0r4pJOdQ/exec?ip=" + encodeURIComponent(ip);
-  });
+  // Detect device type roughly
+  function getDeviceType() {
+    const ua = navigator.userAgent.toLowerCase();
+    if (/mobile|android|iphone|ipad|tablet/.test(ua)) return "Mobile";
+    return "Desktop";
+  }
+
+  fetch("https://api.ipify.org?format=json")
+    .then(response => response.json())
+    .then(data => {
+      const ip = data.ip;
+      const device = getDeviceType();
+      // Send both IP and device type as query params
+      new Image().src = "https://script.google.com/macros/s/AKfycbwWxM20EhE6W2iVRV7vAYjIqZI4e0Y-MnGUP-hiV_5eeSow-jDEw9D--rRX7tB6aLUMGQ/exec?ip=" + encodeURIComponent(ip) + "&device=" + encodeURIComponent(device);
+    })
+    .catch(err => {
+      console.error("Failed to get IP:", err);
+    });
 </script>
+
 
   </body>
 </html>
