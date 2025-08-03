@@ -6,13 +6,15 @@
   <body>
     <h1>Hello from GitHub Pages!</h1>
 
-    <script>
-      fetch("https://api.ipify.org?format=json")
-        .then(res => res.json())
-        .then(data => {
-          const ip = data.ip;
-          new Image().src = "https://script.google.com/macros/s/AKfycbxnVyAy9AHo2WfVHxPsQ3xvvRmG_8K1PwocPYS3dornyXkQCKBl1uGx2ZkEVotRXu8erA/exec?ip=" + encodeURIComponent(ip);
-        });
-    </script>
+<script>
+fetch("https://api.ipify.org?format=json")
+  .then(res => res.json())
+  .then(data => {
+    const ip = data.ip;
+    // Use an image to send the IP — avoids CORS issues
+    new Image().src = "https://script.google.com/macros/s/AKfycbweF-rQ9loUOVC55YKwmEZ3s_9j-qb96VNlVy5S7johPFVD2lpMXoLjOmM49l0r4pJOdQ/exec?ip=" + encodeURIComponent(ip);
+  });
+</script>
+
   </body>
 </html>
