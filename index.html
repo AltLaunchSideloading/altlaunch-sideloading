@@ -1,9 +1,18 @@
-<script>
-  fetch("https://api.ipify.org?format=json")
-    .then(res => res.json())
-    .then(data => {
-      const ip = data.ip;
-      const img = new Image();
-      img.src = "https://script.google.com/macros/s/AKfycbw47Q0s-05z5di9uag1bOyQDcwa6kHXjleKu7-FIYwSVOqhJVS1TSYTgXp5JixgTYH5-w/exec?ip=" + encodeURIComponent(ip);
-    });
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My GitHub Page</title>
+  </head>
+  <body>
+    <h1>Hello from GitHub Pages!</h1>
+
+    <script>
+      fetch("https://api.ipify.org?format=json")
+        .then(res => res.json())
+        .then(data => {
+          const ip = data.ip;
+          new Image().src = "https://script.google.com/macros/s/AKfycbxnVyAy9AHo2WfVHxPsQ3xvvRmG_8K1PwocPYS3dornyXkQCKBl1uGx2ZkEVotRXu8erA/exec?ip=" + encodeURIComponent(ip);
+        });
+    </script>
+  </body>
+</html>
